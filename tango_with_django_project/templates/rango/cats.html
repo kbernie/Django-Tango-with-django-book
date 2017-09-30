@@ -1,0 +1,29 @@
+
+<!-- this is the simple solution
+<ul>
+    {% if cats %}
+        {% for c in cats %}
+            <li><a href="{% url 'show_category' c.slug %}">{{ c.name }}</a></li>
+        {% endfor %}
+    {% else %}
+        <li> <strong>There are no categories present.</strong></li>
+    {% endif %}
+</ul>
+-->
+
+<!-- this is with the parameter, to make bold the category in the sidebar which we're visiting  -->
+<ul>
+    {% for c in cats %}
+        {% if c == act_cat %}
+            <li>
+                <strong>
+                    <a href="{% url 'show_category' c.slug %}">{{ c.name }}</a>
+                </strong>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url 'show_category' c.slug %}">{{ c.name }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
