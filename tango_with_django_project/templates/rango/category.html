@@ -20,8 +20,11 @@
             {% else %}
                 <strong>This category does not exist!</strong>
             {% endif %}
-            <br>
-            <a href="/rango/">Back to the Index page</a>
+            <br><br>
+            <a href="/rango/">Back to the Index page</a><br>
+            {% if category %}
+            <a href="/rango/category/{{category.slug}}/add_page/">Add a New Page to this Category</a>
+            {% endif %}
         </div>
     </body>
 </html>
