@@ -161,3 +161,16 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+#__________________________________________________________________
+# URL you’d like to redirect users to that aren’t logged in:
+LOGIN_URL = '/rango/login/'
+
+
+
+
+
+
+
+
+#

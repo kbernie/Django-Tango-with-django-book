@@ -1,5 +1,6 @@
 from django import forms
-from rango.models import Category, Page
+from django.contrib.auth.models import User
+from rango.models import Category, Page, UserProfile
 
 
 class CategoryForm(forms.ModelForm):
@@ -37,3 +38,29 @@ class PageForm(forms.ModelForm):
         model = Page
 
         exclude = ('category',)
+
+#==============================================================
+
+#Django User model
+class UserForm(forms.ModelForm):
+    # to hide the password when it's typed:
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+
+
+# model that we created addition for User model
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = UserProfile
+        fields = ('website', 'picture')
+
+
+
+
+
+
+#
