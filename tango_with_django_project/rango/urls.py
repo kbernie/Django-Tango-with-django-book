@@ -20,6 +20,8 @@ urlpatterns = [
     # we can automatically use accounts/login
     #                          accounts/logout
     #                          accounts/register
+    #                          accounts/password/change/
+    #                          accounts/password/change/done/
 
 
 ]

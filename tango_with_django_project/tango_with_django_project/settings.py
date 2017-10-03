@@ -197,8 +197,8 @@ LOGIN_REDIRECT_URL = '/rango/'# The page users are directed to if they are not l
 LOGIN_URL = '/accounts/login/'
 
 
-
-
+# Templates for REDUX:
+# https://github.com/macdhuibh/django-registration-templates/tree/master/registration
 
 
 
