@@ -167,10 +167,16 @@ MEDIA_URL = '/media/'
 LOGIN_URL = '/rango/login/'
 
 
+# ==============================================================================
+# cookies can be either browser-length sessions or persistent sessions
 
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False # default
 
+SESSION_COOKIE_AGE = 1209600  # seconds. --> 14 days
 
+# http://eli.thegreenplace.net/2011/06/24/django-sessions-part-i-cookies/
 
-
+#clear the database that stores cookies : $ python manage.py clearsessions
+#====================================================================================
 #
