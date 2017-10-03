@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'registration',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -149,27 +150,22 @@ USE_L10N = True
 
 USE_TZ = True
 
-#_____________________________________________________
+#====================================================================
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [STATIC_DIR, ]
 
-#_____________________________________________________
+#====================================================================#
 # Media files:
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-#__________________________________________________________________
-# URL you’d like to redirect users to that aren’t logged in:
-LOGIN_URL = '/rango/login/'
-
 
 # ==============================================================================
 # cookies can be either browser-length sessions or persistent sessions
-
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False # default
 
@@ -178,5 +174,44 @@ SESSION_COOKIE_AGE = 1209600  # seconds. --> 14 days
 # http://eli.thegreenplace.net/2011/06/24/django-sessions-part-i-cookies/
 
 #clear the database that stores cookies : $ python manage.py clearsessions
+
 #====================================================================================
+#
+
+# DJANGO AUTHENTICATION:
+#__________________________________________________________________
+# URL you’d like to redirect users to that aren’t logged in:
+# LOGIN_URL = '/rango/login/'
+
+# REDUX AUTHENTICATION:
+#__________________________________________________________________
+# If True, users can register
+REGISTRATION_OPEN = True
+# One-week activation window; you may, of course, use a different value.
+ACCOUNT_ACTIVATION_DAYS = 7
+# If True, the user will be automatically logged in.
+REGISTRATION_AUTO_LOGIN = True
+# The page you want users to arrive at after they successfully log in
+LOGIN_REDIRECT_URL = '/rango/'# The page users are directed to if they are not logged in,
+# and are trying to access pages requiring authentication
+LOGIN_URL = '/accounts/login/'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #
