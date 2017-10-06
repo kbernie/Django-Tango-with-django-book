@@ -7,3 +7,5 @@ secrets.json
 __pycache__
 db.sqlite3
 /static
+
+*.key

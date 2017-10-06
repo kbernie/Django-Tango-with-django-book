@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from rango.bing_search import run_query
 
 from django.contrib import messages
 
@@ -285,6 +286,35 @@ def add_page(request, category_name_slug):
 @login_required
 def restricted(request):
     return render(request, 'rango/restricted.html')
+
+
+
+# Bing search API
+#--------------------------
+# Bing search implemented correctly but won't work because the Microsoft Market Services changed!
+def search(request):
+    result_list = []
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+        if query:
+            # Run our Bing function to get the results list!
+            result_list = run_query(query)
+    return render(request, 'rango/search.html', {'result_list': result_list})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #
