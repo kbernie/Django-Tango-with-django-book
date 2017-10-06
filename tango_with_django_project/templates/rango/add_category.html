@@ -1,6 +1,9 @@
 {% extends 'rango/base.html' %}
-
 {% load staticfiles %}
+
+{% comment %}
+without bootstrap
+
 {% block title_block %}
     Add Category
 {% endblock %}
@@ -9,7 +12,6 @@
         <h1>Add Category</h1>
         <div>
             <form id="category_form" method="POST" action="{% url 'add_category' %}">
-
                 {% csrf_token %}
 
                 {% for hidden in form.hidden_fields %}
@@ -26,6 +28,50 @@
 
             </form>
             <br><br>
-    
+
         </div>
+{% endblock %}
+{% endcomment %}
+
+{% comment %}==================================================================================================
+With bootstrap
+
+{% block title %}Add Category{% endblock %}
+{% block body_block %}
+        <h1>Add Category</h1>
+        <form role="form" id="page_form" method="post" action="{% url 'add_category' %}">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}<br/>
+                {{ field }}<br/>
+            {% endfor %}<br/>
+
+            <button class="btn btn-primary" type="submit" name="submit">
+                Create Category
+            </button>
+        </form>
+
+{% endblock %}
+
+{% endcomment %}
+
+{% comment %} =====================================================================================
+The last solution is with bootstrap TOOLKIT
+we had to install it with pip and add to installed apps in settings
+{% endcomment %}
+
+{% load bootstrap_toolkit %}
+{% block title %}Add Category{% endblock %}
+{% block body_block %}
+    <form id="category_form" method="post" action="{% url 'add_category' %}"\>
+        <h2 class="form-signin-heading"\>Add a Category</a></h2>
+        {% csrf_token %}{{ form|as_bootstrap }}
+        <br/>
+        <button class="btn btn-primary" type="submit name="submit"\>Create Category</button>
+    </form>
 {% endblock %}
