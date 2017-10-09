@@ -53,11 +53,13 @@ class UserForm(forms.ModelForm):
 
 # model that we created addition for User model
 class UserProfileForm(forms.ModelForm):
+    website = forms.URLField(required=False)
+    picture = forms.ImageField(required=False)
 
     class Meta:
         model = UserProfile
         fields = ('website', 'picture')
-
+        # or: exclude = ('user',)
 
 
 

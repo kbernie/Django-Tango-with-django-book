@@ -20,12 +20,14 @@ from rango import views
 from django.conf import settings
 from django.conf.urls.static import static
 from registration.backends.simple.views import RegistrationView
+from django.core.urlresolvers import reverse
 
 
 # redux redirection after registration:
 class MyRegistrationView(RegistrationView):
     def get_success_url(self, user):
-        return '/rango/'
+        # return '/rango/register_profile/'
+        return reverse ('register_profile')
 
 
 urlpatterns = [
@@ -39,8 +41,6 @@ urlpatterns = [
     # REDUX:
     url(r'^accounts/', include('registration.backends.simple.urls')),
     # no need to add urls in the app urls.py
-
-
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
